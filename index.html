@@ -39,11 +39,26 @@
         <!--Start Intro-->
 		<div class="flex-row">
           <div class="flex-item flex-column">
-            <h2 class="add-top-margin">ARGUS</h2>
+            <h2 class="add-top-margin">ARGUS Overview</h2>
             <hr>
             <p style="font-size:14pt;">
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-			</p>
+              ARGUS is a static taint tracker build to detect code injection vulnerabilities inside GitHub Workflows. Argus can track the dangerous sources across workflow configuration and JavaScript actions. 
+              You can see examples page to see the type of vulnerabilities Argus can detect.
+            </p>
+            <h2 class="add-top-margin">Getting Started</h2>
+            <p style="font-size:14pt;">
+              To improve the usability of Argus for developers, we created Docker image that contains all the required dependencies to run Argus and detect code injection vulnerabilities inside the workflows. 
+              <br>
+              Following are step-by-step instructions on how to run Argus:
+
+              <ol>
+                <li>docker-compose build</li>
+                <li>...</li>
+                <li>...</li>
+                <li>...</li>
+              </ol>
+
+            </p>
 			<pre>
         @inproceedings{muralee2021Argus,
           title={ARGUS: A Framework for Staged Static Taint Analysis of GitHub Workflows and Actions},
