@@ -1,0 +1,92 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Argus",
+          "version": "0.1.1"
+        }
+      },
+      "results": [
+        {
+          "message": {
+            "text": "An input argument (\"wxhook\") is being passed into a dangerous sink ([exec](0),[exec](1)). It is possible that a user of this action could pass in a tainted parameter that could cause the action to behave in an unexpected way."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "startLine": 6
+                },
+                "artifactLocation": {
+                  "uri": "file:/tmp/TDesignOteam#create-report/daily-issue.js:6:16"
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "id": 0,
+              "physicalLocation": {
+                "region": {
+                  "startLine": 26
+                },
+                "artifactLocation": {
+                  "uri": "file:/tmp/TDesignOteam#create-report/daily-issue.js:26:5"
+                }
+              }
+            },
+            {
+              "id": 1,
+              "physicalLocation": {
+                "region": {
+                  "startLine": 85
+                },
+                "artifactLocation": {
+                  "uri": "file:/tmp/TDesignOteam#create-report/daily-xiaolv.js:85:9"
+                }
+              }
+            }
+          ],
+          "ruleId": "ArgToSink",
+          "ruleIndex": 0
+        },
+        {
+          "message": {
+            "text": "A tainted Context Variable (context ... e.title) is being passed into a dangerous sink ([exec](0)). It is possible that a user of this action could pass in a tainted parameter that could cause the action to behave in an unexpected way."
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "startLine": 11
+                },
+                "artifactLocation": {
+                  "uri": "file:/tmp/TDesignOteam#create-report/daily-issue.js:11:15"
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "id": 0,
+              "physicalLocation": {
+                "region": {
+                  "startLine": 26
+                },
+                "artifactLocation": {
+                  "uri": "file:/tmp/TDesignOteam#create-report/daily-issue.js:26:5"
+                }
+              }
+            }
+          ],
+          "ruleId": "ContextToSink",
+          "ruleIndex": 2
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

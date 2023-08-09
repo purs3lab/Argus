@@ -1,0 +1,167 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Argus",
+          "version": "0.1.1"
+        }
+      },
+      "results": [
+        {
+          "message": {
+            "text": "An input argument (path) is being passed into a dangerous sink ([exec](0),[exec](1),[exec](2)). It is possible that a user of this action could pass in a tainted parameter that could cause the action to behave in an unexpected way."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "startLine": 6
+                },
+                "artifactLocation": {
+                  "uri": "file:/tmp/Reedyuk#write-properties/index.js:6:18"
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "id": 0,
+              "physicalLocation": {
+                "region": {
+                  "startLine": 17
+                },
+                "artifactLocation": {
+                  "uri": "file:/tmp/Reedyuk#write-properties/index.js:17:10"
+                }
+              }
+            },
+            {
+              "id": 1,
+              "physicalLocation": {
+                "region": {
+                  "startLine": 21
+                },
+                "artifactLocation": {
+                  "uri": "file:/tmp/Reedyuk#write-properties/index.js:21:18"
+                }
+              }
+            },
+            {
+              "id": 2,
+              "physicalLocation": {
+                "region": {
+                  "startLine": 31
+                },
+                "artifactLocation": {
+                  "uri": "file:/tmp/Reedyuk#write-properties/index.js:31:18"
+                }
+              }
+            }
+          ],
+          "ruleId": "ArgToSink",
+          "ruleIndex": 0
+        },
+        {
+          "message": {
+            "text": "An input argument (property) is being passed into a dangerous sink ([exec](0),[exec](1),[exec](2)). It is possible that a user of this action could pass in a tainted parameter that could cause the action to behave in an unexpected way."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "startLine": 10
+                },
+                "artifactLocation": {
+                  "uri": "file:/tmp/Reedyuk#write-properties/index.js:10:22"
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "id": 0,
+              "physicalLocation": {
+                "region": {
+                  "startLine": 17
+                },
+                "artifactLocation": {
+                  "uri": "file:/tmp/Reedyuk#write-properties/index.js:17:10"
+                }
+              }
+            },
+            {
+              "id": 1,
+              "physicalLocation": {
+                "region": {
+                  "startLine": 21
+                },
+                "artifactLocation": {
+                  "uri": "file:/tmp/Reedyuk#write-properties/index.js:21:18"
+                }
+              }
+            },
+            {
+              "id": 2,
+              "physicalLocation": {
+                "region": {
+                  "startLine": 31
+                },
+                "artifactLocation": {
+                  "uri": "file:/tmp/Reedyuk#write-properties/index.js:31:18"
+                }
+              }
+            }
+          ],
+          "ruleId": "ArgToSink",
+          "ruleIndex": 0
+        },
+        {
+          "message": {
+            "text": "An input argument (value) is being passed into a dangerous sink ([exec](0),[exec](1)). It is possible that a user of this action could pass in a tainted parameter that could cause the action to behave in an unexpected way."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "startLine": 14
+                },
+                "artifactLocation": {
+                  "uri": "file:/tmp/Reedyuk#write-properties/index.js:14:19"
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "id": 0,
+              "physicalLocation": {
+                "region": {
+                  "startLine": 21
+                },
+                "artifactLocation": {
+                  "uri": "file:/tmp/Reedyuk#write-properties/index.js:21:18"
+                }
+              }
+            },
+            {
+              "id": 1,
+              "physicalLocation": {
+                "region": {
+                  "startLine": 31
+                },
+                "artifactLocation": {
+                  "uri": "file:/tmp/Reedyuk#write-properties/index.js:31:18"
+                }
+              }
+            }
+          ],
+          "ruleId": "ArgToSink",
+          "ruleIndex": 0
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

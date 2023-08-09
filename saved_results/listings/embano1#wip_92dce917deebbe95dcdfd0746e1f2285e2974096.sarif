@@ -1,0 +1,68 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Argus",
+          "version": "0.1.1"
+        }
+      },
+      "results": [
+        {
+          "message": {
+            "text": "An input argument (title) is being passed into a dangerous sink ([title](0)). It is possible that a user of this action could pass in a tainted parameter that could cause the action to behave in an unexpected way."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "embano1#wip | action_inputs"
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "id": 0,
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "embano1#wip | Job : runs | Step : task_0 (0th step)"
+                }
+              }
+            }
+          ],
+          "ruleId": "ArgToSink",
+          "ruleIndex": 0
+        },
+        {
+          "message": {
+            "text": "An input argument (regex) is being passed into a dangerous sink ([regex](0)). It is possible that a user of this action could pass in a tainted parameter that could cause the action to behave in an unexpected way."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "embano1#wip | action_inputs"
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "id": 0,
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "embano1#wip | Job : runs | Step : task_0 (0th step)"
+                }
+              }
+            }
+          ],
+          "ruleId": "ArgToSink",
+          "ruleIndex": 0
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

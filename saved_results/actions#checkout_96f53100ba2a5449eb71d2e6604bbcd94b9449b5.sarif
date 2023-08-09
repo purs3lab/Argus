@@ -1,0 +1,348 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Argus",
+          "version": "0.1.1"
+        }
+      },
+      "results": [
+        {
+          "message": {
+            "text": "An input argument (path) is being passed into a dangerous sink ([rmRF](0),[rmRF](1),[rmRF](2),[rmRF](3),[rmRF](4)). It is possible that a user of this action could pass in a tainted parameter that could cause the action to behave in an unexpected way."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "startLine": 39
+                },
+                "artifactLocation": {
+                  "uri": "file:/tmp/actions#checkout/src/input-helper.ts:39:27"
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "id": 0,
+              "physicalLocation": {
+                "region": {
+                  "startLine": 40
+                },
+                "artifactLocation": {
+                  "uri": "file:/tmp/actions#checkout/src/git-directory-helper.ts:40:23"
+                }
+              }
+            },
+            {
+              "id": 1,
+              "physicalLocation": {
+                "region": {
+                  "startLine": 122
+                },
+                "artifactLocation": {
+                  "uri": "file:/tmp/actions#checkout/src/git-directory-helper.ts:122:21"
+                }
+              }
+            },
+            {
+              "id": 2,
+              "physicalLocation": {
+                "region": {
+                  "startLine": 24
+                },
+                "artifactLocation": {
+                  "uri": "file:/tmp/actions#checkout/src/git-source-provider.ts:24:19"
+                }
+              }
+            },
+            {
+              "id": 3,
+              "physicalLocation": {
+                "region": {
+                  "startLine": 51
+                },
+                "artifactLocation": {
+                  "uri": "file:/tmp/actions#checkout/src/github-api-helper.ts:51:17"
+                }
+              }
+            },
+            {
+              "id": 4,
+              "physicalLocation": {
+                "region": {
+                  "startLine": 74
+                },
+                "artifactLocation": {
+                  "uri": "file:/tmp/actions#checkout/src/github-api-helper.ts:74:17"
+                }
+              }
+            }
+          ],
+          "ruleId": "ArgToSink",
+          "ruleIndex": 0
+        },
+        {
+          "message": {
+            "text": "An environment variable (RUNNER_TEMP) is being passed into a dangerous sink ([exec](0),[exec](1)). It is possible that a user of this action could pass in a tainted parameter that could cause the action to behave in an unexpected way."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "startLine": 210
+                },
+                "artifactLocation": {
+                  "uri": "file:/tmp/actions#checkout/src/git-auth-helper.ts:210:24"
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "id": 0,
+              "physicalLocation": {
+                "region": {
+                  "startLine": 226
+                },
+                "artifactLocation": {
+                  "uri": "file:/tmp/actions#checkout/src/git-auth-helper.ts:226:9"
+                }
+              }
+            },
+            {
+              "id": 1,
+              "physicalLocation": {
+                "region": {
+                  "startLine": 228
+                },
+                "artifactLocation": {
+                  "uri": "file:/tmp/actions#checkout/src/git-auth-helper.ts:228:23"
+                }
+              }
+            }
+          ],
+          "ruleId": "EnvToSink",
+          "ruleIndex": 1
+        },
+        {
+          "message": {
+            "text": "An environment variable (USERDOMAIN) is being passed into a dangerous sink ([exec](0)). It is possible that a user of this action could pass in a tainted parameter that could cause the action to behave in an unexpected way."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "startLine": 226
+                },
+                "artifactLocation": {
+                  "uri": "file:/tmp/actions#checkout/src/git-auth-helper.ts:226:55"
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "id": 0,
+              "physicalLocation": {
+                "region": {
+                  "startLine": 226
+                },
+                "artifactLocation": {
+                  "uri": "file:/tmp/actions#checkout/src/git-auth-helper.ts:226:9"
+                }
+              }
+            }
+          ],
+          "ruleId": "EnvToSink",
+          "ruleIndex": 1
+        },
+        {
+          "message": {
+            "text": "An environment variable (USERNAME) is being passed into a dangerous sink ([exec](0)). It is possible that a user of this action could pass in a tainted parameter that could cause the action to behave in an unexpected way."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "startLine": 226
+                },
+                "artifactLocation": {
+                  "uri": "file:/tmp/actions#checkout/src/git-auth-helper.ts:226:85"
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "id": 0,
+              "physicalLocation": {
+                "region": {
+                  "startLine": 226
+                },
+                "artifactLocation": {
+                  "uri": "file:/tmp/actions#checkout/src/git-auth-helper.ts:226:9"
+                }
+              }
+            }
+          ],
+          "ruleId": "EnvToSink",
+          "ruleIndex": 1
+        },
+        {
+          "message": {
+            "text": "An environment variable (RUNNER_TEMP) is being passed into a dangerous sink ([exec](0),[exec](1)). It is possible that a user of this action could pass in a tainted parameter that could cause the action to behave in an unexpected way."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "startLine": 210
+                },
+                "artifactLocation": {
+                  "uri": "file:/tmp/actions#checkout/src/git-auth-helper.ts:210:24"
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "id": 0,
+              "physicalLocation": {
+                "region": {
+                  "startLine": 226
+                },
+                "artifactLocation": {
+                  "uri": "file:/tmp/actions#checkout/src/git-auth-helper.ts:226:9"
+                }
+              }
+            },
+            {
+              "id": 1,
+              "physicalLocation": {
+                "region": {
+                  "startLine": 228
+                },
+                "artifactLocation": {
+                  "uri": "file:/tmp/actions#checkout/src/git-auth-helper.ts:228:23"
+                }
+              }
+            }
+          ],
+          "ruleId": "EnvToSink",
+          "ruleIndex": 1
+        },
+        {
+          "message": {
+            "text": "An environment variable (USERDOMAIN) is being passed into a dangerous sink ([exec](0)). It is possible that a user of this action could pass in a tainted parameter that could cause the action to behave in an unexpected way."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "startLine": 226
+                },
+                "artifactLocation": {
+                  "uri": "file:/tmp/actions#checkout/src/git-auth-helper.ts:226:55"
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "id": 0,
+              "physicalLocation": {
+                "region": {
+                  "startLine": 226
+                },
+                "artifactLocation": {
+                  "uri": "file:/tmp/actions#checkout/src/git-auth-helper.ts:226:9"
+                }
+              }
+            }
+          ],
+          "ruleId": "EnvToSink",
+          "ruleIndex": 1
+        },
+        {
+          "message": {
+            "text": "An environment variable (USERNAME) is being passed into a dangerous sink ([exec](0)). It is possible that a user of this action could pass in a tainted parameter that could cause the action to behave in an unexpected way."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "startLine": 226
+                },
+                "artifactLocation": {
+                  "uri": "file:/tmp/actions#checkout/src/git-auth-helper.ts:226:85"
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "id": 0,
+              "physicalLocation": {
+                "region": {
+                  "startLine": 226
+                },
+                "artifactLocation": {
+                  "uri": "file:/tmp/actions#checkout/src/git-auth-helper.ts:226:9"
+                }
+              }
+            }
+          ],
+          "ruleId": "EnvToSink",
+          "ruleIndex": 1
+        },
+        {
+          "message": {
+            "text": "An input argument (path) is being passed back as an output (). It is possible that a user of this action could use this output in an insecure manner."
+          },
+          "level": "note",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "startLine": 39
+                },
+                "artifactLocation": {
+                  "uri": "file:/tmp/actions#checkout/src/input-helper.ts:39:27"
+                }
+              }
+            }
+          ],
+          "relatedLocations": [],
+          "ruleId": "ArgToOutput",
+          "ruleIndex": 3
+        },
+        {
+          "message": {
+            "text": "An input argument (path) is being passed back as an environment variable (). It is possible that a user of this action could use this output in an insecure manner."
+          },
+          "level": "note",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "startLine": 39
+                },
+                "artifactLocation": {
+                  "uri": "file:/tmp/actions#checkout/src/input-helper.ts:39:27"
+                }
+              }
+            }
+          ],
+          "relatedLocations": [],
+          "ruleId": "ArgToEnv",
+          "ruleIndex": 4
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}
