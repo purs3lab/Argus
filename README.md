@@ -2,6 +2,8 @@
 
 This repo contains the code for our USENIX Security '23 paper "ARGUS: A Framework for Staged Static Taint Analysis of GitHub Workflows and Actions". Argus is a comprehensive security analysis tool specifically designed for GitHub Actions. Built with an aim to enhance the security of CI/CD workflows, Argus utilizes taint-tracking techniques and an impact classifier to detect potential vulnerabilities in GitHub Action workflows.
 
+Visit our website - [secureci.org](https://secureci.org/argus) for more information.
+
 ## Features
 
 - **Taint-Tracking**: Argus uses sophisticated algorithms to track the flow of potentially untrusted data from specific sources to security-critical sinks within GitHub Actions workflows. This enables the identification of vulnerabilities that could lead to code injection attacks.
@@ -75,6 +77,13 @@ Argus is an open-source project, and we welcome contributions from the community
 If you use Argus in your research, please cite our paper:
 
 ```
+  @inproceedings{muralee2023Argus,
+    title={ARGUS: A Framework for Staged Static Taint Analysis of GitHub Workflows and Actions},
+    author={S. Muralee, I. Koishybayev, A. Nahapetyan, G. Tystahl, B. Reaves, A. Bianchi, W. Enck, 
+      A. Kapravelos, A. Machiry},
+    booktitle={32st USENIX Security Symposium (USENIX Security 23)},
+    year={2023},
+  }
 ```
 
 ## License
