@@ -10,7 +10,8 @@ RUN mkdir codeql_home
 # Setup codeql
 WORKDIR /root/codeql_home
 RUN mkdir codeql-repo
-RUN git clone --depth 1 https://github.com/github/codeql codeql-repo/
+RUN git clone  https://github.com/github/codeql codeql-repo/
+RUN cd codeql-repo && git checkout tags/codeql-cli/v2.13.3
 RUN wget https://github.com/github/codeql-cli-binaries/releases/download/v2.13.3/codeql-linux64.zip
 RUN unzip codeql-linux64.zip
 
