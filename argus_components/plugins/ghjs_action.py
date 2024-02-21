@@ -46,7 +46,7 @@ class GHJSAction(GHAction):
     @staticmethod
     def detect_type(action_type):
         # call get_yaml_type from the superclass
-        if action_type == "node16" or action_type == "node14" or action_type == "node12":
+        if action_type == "node16" or action_type == "node14" or action_type == "node12" or action_type == "node20":
             return True
         return False
 

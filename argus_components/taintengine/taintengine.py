@@ -290,7 +290,13 @@ class TaintEngine:
         elif input_taint_type == "env":
             return self.is_env_tainted(packed_data["name"])
         elif input_taint_type == "context":
-            return packed_data
+            return TaintObj(
+                name=packed_data["name"],
+                type=output_taint_type,
+                parent_nodes=[],
+                location=self.get_location(),
+                engine=self
+            )
         elif input_taint_type == "output":
             # It's an output, so we need to check if the output is tainted
             return self.is_output_tainted(packed_data["name"])
@@ -402,7 +408,7 @@ class TaintEngine:
                 self.taint_packed_data(
                     packed_data=task_group.outputs, 
                     input_type="packed", 
-                    output_type="any", 
+                    output_type="job_output", 
                     level=self.TASK_GROUP_LEVEL
                 )
 
@@ -434,12 +440,16 @@ class TaintEngine:
             if alert["type"] == "OutputTainted":
                 if any(root_node.type == "context" for root_node in alert["taint_obj"].root_node):
                     results["ContextToOutput"].append(alert["taint_obj"].report_dict)
+                elif any(root_node.type == "output" for root_node in alert["taint_obj"].root_node):
+                    results["ContextToOutput"].append(alert["taint_obj"].report_dict)
                 elif any(root_node.type == "input" for root_node in alert["taint_obj"].root_node):
                     results["ArgToOutput"].append(alert["taint_obj"].report_dict)
                 else:
                     Exception("Unknown root node type")            
             else:
                 if any(root_node.type == "context" for root_node in alert["taint_obj"].root_node):
+                    results["ContextToSink"].append(alert["taint_obj"].report_dict)
+                elif any(root_node.type == "output" for root_node in alert["taint_obj"].root_node):
                     results["ContextToSink"].append(alert["taint_obj"].report_dict)
                 elif any(root_node.type == "input" for root_node in alert["taint_obj"].root_node):
                     results["ArgToSink"].append(alert["taint_obj"].report_dict)
@@ -547,11 +557,12 @@ class TaintEngine:
         # Pass the same metadata to the reusable workflow
         # maybe we need to cache it.  
         wf_report = Report.WorkflowReport(
-            TaintEngine(workflow_ir, sub_repo).run_workflow()
+            TaintEngine(workflow_ir, sub_repo).run_workflow(),
+            workflow_ir
         )
 
-        self.check_workflow_sinks(wf_report, task_group)
-        self.propogate_workflow_taint(wf_report, task_group)
+        self.check_workflow_sinks(task_group, wf_report)
+        self.propogate_workflow_taint(task_group, wf_report)
 
 
     def handle_task(self, task : GHTask):
@@ -669,7 +680,7 @@ class TaintEngine:
         assert isinstance(report, Report.WorkflowReport), "check_workflow_sinks: report is not WorkflowReport"
 
         rworkflow = report.workflow
-        for input in rworkflow.inputs:
+        for input in rworkflow.workflow_inputs:
             if input["name"] in [arg["name"] for arg in task.args]:
                 continue
         
