@@ -33,11 +33,12 @@ class Action:
     LOCAL_ACTION = 1
     REMOTE_ACTION = 2
 
-    def __init__(self, action_url, options_dict, action_path, action_type = REMOTE_ACTION):
+    def __init__(self, action_url, options_dict, action_path, action_type = REMOTE_ACTION, parent_repo = None):
         self.action_url = action_url
         self.options_dict = options_dict
         self.action_path = action_path
         self.action_type = action_type
+        self.parent_repo = parent_repo
 
         if self.action_type == self.REMOTE_ACTION and "github.com" not in self.action_url:
             raise Exception("Only GitHub Actions are supported for now")

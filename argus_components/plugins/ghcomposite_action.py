@@ -80,7 +80,7 @@ class GHCompositeAction(GHAction):
         if 'runs' in action_yml:
             job = GHWorkflowJob("runs", action_yml['runs'], 0)
             task_group = GHNormalTaskGroup(job)
-            Tengine = taintengine.TaintEngine(task_group, self.action)
+            Tengine = taintengine.TaintEngine(task_group, self.action, self.action.parent_repo)
             return ActionReport(Tengine.run_task_group(self.parsed_inputs, self.parsed_outputs), self)
         else:
             raise Exception(f"Composite action {self.action_name} does not have a 'runs' key in its action.yml file")

@@ -164,7 +164,7 @@ class TaintEngine:
     ]
     TAINT_LEVELS = [WORKFLOW_LEVEL, TASK_GROUP_LEVEL, TASK_LEVEL]
 
-    def __init__(self, workflow : GHWorkflowIR, repo):
+    def __init__(self, workflow : GHWorkflowIR, repo, parent_repo = None):
 
         assert isinstance(workflow, GHWorkflowIR) or isinstance(workflow, GHNormalTaskGroup), "TaintEngine only supports GHWorkflowIR and GHNormalTaskGroup"
 
@@ -178,6 +178,7 @@ class TaintEngine:
             self.workflow = workflow
             self.action = repo
             self.task_group = workflow
+            self.repo = parent_repo
             self.curr_type = TaintEngine.ACTION_MODE
 
         self.current_task_group = None
@@ -358,7 +359,7 @@ class TaintEngine:
             packed_data=self.workflow.workflow_inputs, 
             input_type="maketaint", 
             output_type="input", 
-            level=self.TASK_GROUP_LEVEL
+            level=self.WORKFLOW_LEVEL
         )
         self.unset_override_location()
 
@@ -537,12 +538,14 @@ class TaintEngine:
         logger.debug(f"Handling Reusable Task Group: {task_group.id} | {task_group.workflow}")
 
         # Taint the inputs of the reusable workflow
-        tainted_inputs = self.taint_packed_data(
-                            packed_data=task_group.args, 
-                            input_type="wf_input", 
-                            output_type="any", 
-                            level=self.TASK_GROUP_LEVEL
-                        )
+        self.set_override_location("reusable_workflow_inputs")
+        self.taint_packed_data(
+            packed_data=task_group.args, 
+            input_type="packed", 
+            output_type="arg", 
+            level=self.TASK_LEVEL
+        )
+        self.unset_override_location()
 
         sub_repo = None
         if task_group.workflow_type == GHResuableTaskGroup.LOCAL_WORKFLOW:
@@ -614,7 +617,7 @@ class TaintEngine:
             # try:
                 action : Action.Action = self.repo.is_action_evaluated(ac_task.action_name, ac_task.action_path, ac_task.action_version)
                 if action == None:
-                    action = Action.Action(ac_task.action_url, ac_task.options_dict, ac_task.action_path)
+                    action = Action.Action(ac_task.action_url, ac_task.options_dict, ac_task.action_path, parent_repo=self.repo)
                     action.run()
                     self.repo.add_evaluated_action(action)
                 else:
@@ -681,6 +684,7 @@ class TaintEngine:
 
         rworkflow = report.workflow
         for input in rworkflow.workflow_inputs:
+            # We need to taint the args that are passed to the workflow 
             if input["name"] in [arg["name"] for arg in task.args]:
                 continue
         
@@ -691,7 +695,7 @@ class TaintEngine:
                 level=self.TASK_LEVEL
             )
 
-        # Check if the action passes a tained argument to a sink
+        # Check if the workflow passes a tained argument to a sink
         self.check_packed_data(
             report.arg_to_sink,
             input_type="arg",
