@@ -1,6 +1,6 @@
 # ARGUS SPECIFIC
 results/*
-!results/Readme.mk
+!results/README.md
 
 # PYTHON SPPECIFIC FILES
 # Byte-compiled / optimized / DLL files
