@@ -14,6 +14,7 @@ colorlog = "^6.7.0"
 PyYAML = "^6.0"
 sarif-om = "^1.0.4"
 jschema-to-python = "^1.2.3"
+setuptools = "^70.0.0"
 
 [tool.poetry.dev-dependencies]
 
