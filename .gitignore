@@ -1,3 +1,8 @@
+# ARGUS SPECIFIC
+results/*
+!results/README.md
+
+# PYTHON SPPECIFIC FILES
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
