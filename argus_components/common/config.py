@@ -25,7 +25,7 @@ import os
 
 LOCAL_FOLDER : pathlib.Path = pathlib.Path('/tmp')
 CODEQL_BIN : pathlib.Path = pathlib.Path('~/codeql_home/codeql/codeql')
-QUERY_PATH : pathlib.Path = pathlib.Path(os.getcwd()) / "qlqueries"
+QUERY_PATH : pathlib.Path = pathlib.Path(os.path.dirname(__file__)) / "../../qlqueries"
 ENABLE_LOW_PRIORITY_REPORTS : bool = True
 RESULTS_FOLDER : pathlib.Path = pathlib.Path("/results")
 
