@@ -81,7 +81,10 @@ class Action:
         return repo + "#" + action
 
     def save_report_to_file(self):
-        file_name = RESULTS_FOLDER / f"{self.action_name}_{self.options_dict['value']}.sarif"
+        if self.opiton_dict == None or "value" not in self.options_dict.keys():
+            file_name = RESULTS_FOLDER / f"{self.action_name}_unknown.sarif"
+        else:
+            file_name = RESULTS_FOLDER / f"{self.action_name}_{self.options_dict['value']}.sarif"
         return self.report.get_report(file_name)
     
     def print_report(self):
